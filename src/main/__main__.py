@@ -10,10 +10,10 @@ def main():
     path = args.input_file
     parser = Parser(path)
 
-    text = parser.read()
+    clean = parser.load_clean()
 
     print("=== RAW INPUT START ===")
-    print(text)
+    print(clean)
     print("=== RAW INPUT END ===")
 
 
