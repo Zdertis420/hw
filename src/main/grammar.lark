@@ -1,0 +1,28 @@
+BINARY: /0[bB][01]+/
+NAME: /[_a-zA-Z]+/
+
+%import common.WS
+%ignore WS
+
+
+start: statement*
+
+
+statement: const_decl
+         | result_stmt
+         | value
+
+
+const_decl: "set" NAME " = " value ";"    -> const_decl
+
+
+result_stmt: "!(" NAME ");"              -> const_eval
+
+
+?value: number
+      | array
+
+number: BINARY                           -> binary_number
+
+
+array: "[" [value (";" value)*] "]"      -> array_value

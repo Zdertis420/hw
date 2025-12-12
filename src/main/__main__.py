@@ -16,6 +16,12 @@ def main():
     print(clean)
     print("=== RAW INPUT END ===")
 
+    tree = parser.parse()
+
+    print("=== PARSED ===")
+    print(tree.pretty())
+    print("=== PARSED END ===")
+
 
 if __name__ == "__main__":
     main()
